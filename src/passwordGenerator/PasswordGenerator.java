@@ -11,7 +11,7 @@ public class PasswordGenerator {
 
         //checking options: passwordGenerator 4 f
         int numberOfPasswordsWanted = 1;
-        int passLength = 16;
+        int passLength = 15;
         boolean wantsFile = false;
 
 
