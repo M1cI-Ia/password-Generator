@@ -1,14 +1,15 @@
 package passwordGenerator;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+
 public class PasswordGenerator {
-    private static int numberOfPasswordsWanted = 1;
-    private static int passLength = 15;
-    private static boolean wantsFile = false;
+    protected static int numberOfPasswordsWanted = 1;
+    protected static int passLength = 15;
+    protected static boolean wantsFile = false;
 
     public static void main(String[] args) {
 
-
-        //checking options: passwordGenerator <numberOfPasswords> <desiredLength> <f=print them to a file>
 
         if (args.length == 0) {
             //TODO: continue with default settings
@@ -36,10 +37,17 @@ public class PasswordGenerator {
         //TODO:warn at to short pws
 
         //generationg PWs
+        Password pw = new Password();
+        try {
+            pw.generatePassword(passLength);
+        } catch (NoSuchProviderException | NoSuchAlgorithmException e) {
+            System.out.println("to secureRandom happened some serious shit");
+        }
 
 
         //show extimation of no. of bits
         //output
+        System.out.println(pw.password);
 
 
     }
@@ -58,4 +66,6 @@ public class PasswordGenerator {
         //TODO
         System.out.println("usage");
     }
+
+
 }
