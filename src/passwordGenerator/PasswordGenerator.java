@@ -34,7 +34,7 @@ public class PasswordGenerator {
         System.out.println("Generating " + numberOfPasswordsWanted + " password(s)");
         System.out.println("saving them to a file:" + wantsFile);
         System.out.println("Length " + passLength);
-        //TODO:warn at to short pws
+        //TODO:warn at too short pws
 
         //generationg PWs
         Password pw = new Password();
