@@ -7,7 +7,6 @@ import java.security.SecureRandom;
 public class Password {
     protected String password;
 
-
     public Password() {
     }
 
@@ -24,5 +23,4 @@ public class Password {
         System.out.println(sb);
         this.password = sb.toString();
     }
-
 }
