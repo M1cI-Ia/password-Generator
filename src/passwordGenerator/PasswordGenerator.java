@@ -2,6 +2,7 @@ package passwordGenerator;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.text.DecimalFormat;
 
 public class PasswordGenerator {
     protected static int numberOfPasswordsWanted = 1;
@@ -46,8 +47,11 @@ public class PasswordGenerator {
 
 
         //show extimation of no. of bits
+
         //output
         System.out.println(pw.password);
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.println("estimated password strength is " + df.format(pw.passwordStrengthEstimation()) + " Bit");
 
 
     }

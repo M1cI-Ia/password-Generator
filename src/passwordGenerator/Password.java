@@ -6,6 +6,7 @@ import java.security.SecureRandom;
 
 public class Password {
     protected String password;
+    private final String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.:!?()[]-_#+&%$/=*";
 
     public Password() {
     }
@@ -14,13 +15,21 @@ public class Password {
 
         StringBuffer sb = new StringBuffer();
         //TODO Alphabet
-        String alphabet = "abc";
+
+        final int uprbnd = alphabet.length();
         SecureRandom srandom;
         srandom = SecureRandom.getInstance("NativePRNG", "SUN");
         for (int i = 0; i < pwLength; i++) {
-            sb.append(alphabet.charAt(srandom.nextInt(3)));
+            sb.append(alphabet.charAt(srandom.nextInt(uprbnd)));
         }
-        System.out.println(sb);
         this.password = sb.toString();
+    }
+
+    /**
+     * @return password entropy in bit
+     */
+    protected double passwordStrengthEstimation() {
+        return (double) password.length() * -(Math.log10(1 / (double) alphabet.length()) / Math.log10(2));
+
     }
 }
